@@ -1,4 +1,5 @@
-# Create VCN
+# Creating VCN
+
 1. Open the navigation menu and click **Networking** &rarr; **Virtual Cloud Networks** 
 ![drawing](./SS/vcn/1.png)
 
@@ -14,7 +15,7 @@
 
     ![drawing](./SS/vcn/4.png)
 
-5. Scrolldown and click on **Create**
+5. Scroll-down and click on **Create**
 
      ![drawing](./SS/vcn/5.png)
 
