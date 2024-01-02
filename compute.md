@@ -11,9 +11,13 @@
 
     ![drawing](./SS/compute/3.png)
 
-4. Pick Oracle Linux and choose the amount of oCPU required.
+4. Pick Oracle Linux (default)
 
     ![drawing](./SS/compute/4.png)
+
+4.1 Click on "Change Shape" and select E4.Flex with 2 OCPU and 8 GB ram and click on "Select Shape"
+
+![drawing](./SS/compute/3_5.png)
 
 5. Select the VCN you want and make sure to place on in the Public Subnet
 

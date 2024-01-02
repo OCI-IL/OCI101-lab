@@ -116,7 +116,7 @@
         2. **Display name:** Specify a user-friendly description that helps you easily identify the resource
         3. **Database name:** Specify the database name (it must consist of letters and numbers only)
         4. For the workload type, choose **JSON**
-        5. For the deployment type, choose **Shared infrastructure**
+        5. For the deployment type, choose **Serverless**
         6. Keep the database configuration the same
         7. Set the password for the Admin database user in your new database **Don't use @ in password**
         8. Choose network access **Secure access from allowed IPs and VCNs only** and select IP notation type **CIDR Block** with the Values **0.0.0.0/0**
@@ -125,7 +125,7 @@
 
     4. Wait until your new Autonomous Database's status changes from Provisioning to Available.
 
-    5. Click **Database actions** and wait for the page to finish initializing and to appear.
+    5. Click **Database actions** -> **All Database Action** and wait for the page to finish initializing and to appear.
 
         ![drawing](./SS/step2/db_actions_button.png)
 
@@ -139,7 +139,7 @@
 
        Instead of *[user]* enter your database user
 
-       It should looks like: *mongodb://**user**:**password**@G0D09E...F.adb.il-jerusalem-1.oraclecloudapps.com:27017/**user**?authMechanism...true*
+       It should looks like: *mongodb://admin:**password**@G0D09E...F.adb.il-jerusalem-1.oraclecloudapps.com:27017/admin?authMechanism...true*
 
         ![drawing](./SS/step2/connection_string.png)
 
@@ -195,29 +195,29 @@
    1. Connect to the compute instance you've created earlier today by running the following command on your shell:
     
             sudo ssh  -i <your_ssh_key_path>.key opc@<instance_ip>
-    
-   2. Switch to root user by running the following command:    
+
+   2. Switch to root user by running the following command:
 
             sudo su
 
-   3. After you connected to your machine, install git by running the following command:    
+   3. After you connected to your machine, install git by running the following command:
 
-            yum install git
+            sudo yum install git
 
    4. Now, clone the git repository by running the following command:    
 
-            git clone https://github.com/OCI-IL/OCIFundamentals-lab-01
+            git clone https://github.com/OCI-IL/OCI101-lab
 
 
 6. **STEP 6 : Edit The Config File**
 
     1. Change directory to the cloned folder "OCIFundamentals-lab-01" by running the following command:    
 
-            cd OCIFundamentals-lab-01
+            cd OCI101-lab
 
     2. Run the following command to edit the config file:
 
-            vi flask/config.txt
+            nano flask/config.txt
 
     3. The file will look like that:
 
@@ -227,20 +227,20 @@
             "coll_name": "<COLLECTION_NAME>"
             }
 
-    4. Press on "**i**" key to edit the file and change the following:
+    4. update the settings as following:
         
         1. **"CONNECTION_STRING":** Replace <DB_CONNECTION_STRING> with your db's connection string (inside the quotation marks)
         2. **"bucketName":** Replace <BUCKET_NAME> with your bucket's name (inside the quotation marks)
         3. **"coll_name":** Replace <COLLECTION_NAME> with your collection's name (inside the quotation marks)
 
-    5. After you've finished editing, press the "**esc**" key, then **"shift" + ":"** , then write **:wq** and finally press the "**enter**" key to save your changes
+    5. After you've finished editing, **"ctrl" + "s"** , then write **y**
 
 
 7. **STEP 7 : Running The Application**
 
     1. Run the following command to install all of the packages listed in the "requirements.txt" file:
 
-            pip3 install -r requirements.txt
+            sudo pip3 install -r requirements.txt
 
     2. Run the following commands to open port 5000 in the Linux firewall:
 
@@ -258,5 +258,10 @@
 
         sudo kill -9 $(sudo lsof -t -i:5000)
 
+
+8. **Route Traffic via Load Balancer**
+    [(Click here to create Load Balancer)](/load_balancer.md)
+
+    [(Click here to route traffic )](/add_be.md)
 
 
