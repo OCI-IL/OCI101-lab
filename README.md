@@ -196,15 +196,11 @@
     
             sudo ssh  -i <your_ssh_key_path>.key opc@<instance_ip>
 
-   2. Switch to root user by running the following command:
-
-            sudo su
-
-   3. After you connected to your machine, install git by running the following command:
+   2. After you connected to your machine, install git by running the following command:
 
             sudo yum install git
 
-   4. Now, clone the git repository by running the following command:    
+   3. Now, clone the git repository by running the following command:    
 
             git clone https://github.com/OCI-IL/OCI101-lab
 
@@ -260,6 +256,7 @@
 
 
 8. **Route Traffic via Load Balancer**
+
     [(Click here to create Load Balancer)](/load_balancer.md)
 
     [(Click here to route traffic )](/add_be.md)
